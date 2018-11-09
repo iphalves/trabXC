@@ -1,0 +1,10 @@
+C:\Users\Cliente\Desktop\pet\PetShop
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=PetShop
+--content-root=C:\Users\Cliente\Desktop\pet\PetShop
+--file=C:\Users\Cliente\Desktop\pet\PetShop\Views\Cadastro\Index.cshtml
+--file=C:\Users\Cliente\Desktop\pet\PetShop\Views\Default\Index.cshtml
+--file=C:\Users\Cliente\Desktop\pet\PetShop\Views\Login\Index.cshtml
+--file=C:\Users\Cliente\Desktop\pet\PetShop\Views\Shared\_Layout.cshtml
+--file=C:\Users\Cliente\Desktop\pet\PetShop\Views\Shared\_Layoutpopup.cshtml
+--file=C:\Users\Cliente\Desktop\pet\PetShop\Views\_ViewStart.cshtml

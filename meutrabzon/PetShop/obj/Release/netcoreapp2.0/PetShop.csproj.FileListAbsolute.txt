@@ -1,0 +1,11 @@
+C:\Users\Cliente\Desktop\pet\PetShop\bin\Release\netcoreapp2.0\PetShop.deps.json
+C:\Users\Cliente\Desktop\pet\PetShop\bin\Release\netcoreapp2.0\PetShop.runtimeconfig.json
+C:\Users\Cliente\Desktop\pet\PetShop\bin\Release\netcoreapp2.0\PetShop.runtimeconfig.dev.json
+C:\Users\Cliente\Desktop\pet\PetShop\bin\Release\netcoreapp2.0\PetShop.dll
+C:\Users\Cliente\Desktop\pet\PetShop\bin\Release\netcoreapp2.0\PetShop.pdb
+C:\Users\Cliente\Desktop\pet\PetShop\obj\Release\netcoreapp2.0\PetShop.csprojAssemblyReference.cache
+C:\Users\Cliente\Desktop\pet\PetShop\obj\Release\netcoreapp2.0\PetShop.csproj.CoreCompileInputs.cache
+C:\Users\Cliente\Desktop\pet\PetShop\obj\Release\netcoreapp2.0\PetShop.AssemblyInfoInputs.cache
+C:\Users\Cliente\Desktop\pet\PetShop\obj\Release\netcoreapp2.0\PetShop.AssemblyInfo.cs
+C:\Users\Cliente\Desktop\pet\PetShop\obj\Release\netcoreapp2.0\PetShop.dll
+C:\Users\Cliente\Desktop\pet\PetShop\obj\Release\netcoreapp2.0\PetShop.pdb

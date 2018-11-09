@@ -1,0 +1,15 @@
+﻿
+input:invalid+span:after {
+    content: '✖';
+    padding-left: 5px;
+}
+
+input:valid+span:after {
+    content: '✓';
+    padding-left: 5px;
+}
+.meio {
+    text-align: center !important;
+    width: 35% !important;
+    background-color: red !important;
+}

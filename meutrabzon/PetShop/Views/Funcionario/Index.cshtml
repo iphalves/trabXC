@@ -1,0 +1,98 @@
+﻿@section estilos {
+    <link href="~/css/Login/Index.css" rel="stylesheet" />
+    
+<style>.meio {
+    text-align: center !important;
+    width: 35% !important;
+}</style>
+}
+@section js {
+
+    <script>
+      var login = {
+
+            init: function () {
+
+                y.onclick("btnLogar", login.btnLogarOnClick);
+
+            },
+
+            btnLogarOnClick: function() { 
+
+                var dados = {
+                    usuario: y.byId("usuario").value,
+                    senha: y.byId("senha").value
+                }
+
+                y.ajax(dados, "/Funcionario/Logar", "POST", function (lit) { 
+
+
+                    if (lit.logado) {
+                        document.location.href = lit.url;
+                    }
+                    else { 
+
+                        y.byId("divMsg").innerHTML = "Usuário inválido.";
+
+                    }
+
+                }, function () {
+                    alert("Deu erro....");
+                 })
+
+            }
+
+        };
+
+        document.addEventListener("DOMContentLoaded", function () { 
+
+            login.init();
+
+        });
+</script>
+}
+@{
+    ViewBag.Titulo = "Login";
+    ViewBag.Msg = "Login";
+}
+<form>
+    <div class="container-fluid meio">
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="alert diferente col-md-12">
+                    <div class="col-md-12 col-md-offset-12">
+                        <div class="panel panel-default">
+                            
+                            <div class="col-md-12">
+                                <div class="panel-heading text-left">
+                                    <h3 class="panel-title title-login">> Login</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <form accept-charset="UTF-8" role="form" method="post" action="~/Funcionario/Logar">
+                                        <div class="form-group">
+                                            <input class="form-control" id="usuario" placeholder="CPF Funcionario" name="usuario" type="text">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" id="senha" placeholder="Senha" name="senha" type="password">
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input name="remember" type="checkbox" value="Lembrar senha"> Lembrar senha
+                                            </label>
+                                        </div>
+                                        <hr />
+                                        <input class="btn btn-lg btn-custom btn-block" id="btnLogar" type="button" value="Login">
+                                    </form>
+                                    <hr />
+                                    <span>Esqueci minha senha</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span><div id="divMsg"></div></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

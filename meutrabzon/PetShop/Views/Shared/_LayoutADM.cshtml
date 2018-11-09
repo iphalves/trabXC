@@ -1,0 +1,88 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>@ViewBag.Titulo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="~/css/IndexFooter.css" rel="stylesheet">
+    <link href="~/lib/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/Bootstrap/css/bootstrap-grid.css" rel="stylesheet" />
+    <link href="~/lib/Bootstrap/css/bootstrap-reboot.css" rel="stylesheet" />    
+    
+    <script src="~/js/simplaojs.js"></script>
+    @RenderSection("estilos", required: false)
+    @RenderSection("js", required: false)
+</head>
+
+<body id="page-top">
+    
+    <header class="bg-primary text-white">
+        <div class="container-fluid text-center">
+            <h1>Prime PetShop - @ViewBag.Msg</h1>
+        </div>
+    </header>
+    <hr class="bg-dark" style="height:10px;position:relative;margin:0 0 0 0;"/>
+        <div class="col-md-4 bg-dark" style="height:90.5%;width:15%;position:relative;float:left;">
+                <img src="~/img/Logoprime.png" style="height:10%;width:40%;margin-left:25%" />                        
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="Index/index.cshtml" style="color:red">Inicio</a>
+                        
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="Banho/index.cshtml">Realiza Banho</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="#">Agenda Banho</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Logout</a>
+                    </li>
+                </ul>
+        </div>
+        <div class="col-md-12" style="height:90.5%;">
+        @RenderBody()
+        </div>
+    <footer class="py-5 bg-dark">
+        <section id="footer">
+            <div class="container">
+                <div class="row text-center text-xs-center text-sm-left text-md-left">
+                    <div class="col-md-4">
+                        <h5>Acesso rápido</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Inicio</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Sobre</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Agendamento</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Produtos</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="list-unstyled list-inline social text-center">
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                    </hr>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center text-white">
+                        <p class="h6">&copy Todos Direitos Reservados.<a class="text-green ml-2" href="" target="_blank">Prime Pet Shop</a></p>
+                    </div>
+                    </hr>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+</body>
+
+</html>

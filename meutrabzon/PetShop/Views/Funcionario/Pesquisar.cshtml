@@ -1,0 +1,124 @@
+
+@{
+    ViewData["Title"] = "Pesquisar";
+    Layout = "~/Views/Shared/_LayoutPopup.cshtml";
+}
+
+
+<script>
+
+    var pesquisar = {
+
+        init: function () { 
+
+            y.onkeyup("txtPesquisar", pesquisar.txtPesquisarOnKeyUp);
+            y.onclick("btnPesquisar", pesquisar.btnPesquisarOnClick);
+
+        },
+
+        btnPesquisarOnClick: function () {
+
+
+            var dados = {
+                nome: y.byId("txtPesquisar").value
+            };
+
+            y.ajax(dados, "/Funcionario/EnvPesquisar", "POST", function (funcionarios) { 
+
+                pesquisar.gerarGrid(funcionarios);
+
+            }, function () { 
+
+                alert('Não foi possível obter os funcionários.');
+
+            } )
+
+        },
+
+        txtPesquisarOnKeyUp: function () {
+
+            var dados = {
+                nome: y.byId("txtPesquisar").value
+            };
+
+            y.ajax(dados, "/Funcionario/EnvPesquisar", "POST", function (funcionarios) {
+
+                pesquisar.gerarGrid(funcionarios);
+
+            }, function () {
+
+                alert('Não foi possível obter os funcionários.');
+
+            })
+
+        },
+
+        gerarGrid: function (funcionarios) { 
+
+            var tbodyResultado = y.byId("tbodyResultado");
+
+            var template = "<tr>" +
+                           "   <td>{nome}</td>" + 
+                           "   <td><a data-id=\"{id}\" href=\"javascript:;\">editar</a></td>" + 
+                           "</tr > ";
+
+            var linhas = "";
+            for (var i = 0; i < funcionarios.length; i++) {
+                linhas += y.renderTemplate(template, funcionarios[i]);
+            }
+
+            tbodyResultado.innerHTML = linhas;
+
+            if (linhas == 0) {
+
+                y.byId("divDados").style.display = "none"
+            }
+            else y.byId("divDados").style.display = "block";
+
+            var aEditar = y.bySelectorAll("table a[data-id]");
+
+
+            y.on("click", aEditar, pesquisar.selecionarOnClick);
+         
+        },
+
+        selecionarOnClick: function () { 
+            var id = this.getAttribute("data-id");
+            window.parent.cadastro.editar(id);
+        }
+
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        pesquisar.init();
+    });
+
+
+</script>
+
+<style>
+
+    #divDados {
+        position:relative;
+        display:none;
+    }
+    
+    #tableDados {
+        border: 1px solid red;
+        width: 300px;
+        min-height: 100px;
+        position: absolute;
+        top: 0;
+    }
+
+</style>
+
+<h2>Pesquisar</h2>
+<input type="text" id="txtPesquisar" />
+<input type="button" id="btnPesquisar" value="Pesquisar"  />
+<div id="divDados">
+    <table id="tableDados">
+        <tbody id="tbodyResultado"></tbody>
+    </table>
+</div>
+

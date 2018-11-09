@@ -1,0 +1,116 @@
+@section estilos{
+    <link href="~/css/Banho/Index.css" rel="stylesheet"/>
+}
+@section js {
+    <script>
+      var cadastro = {
+          init : function (){
+              y.onclick("btnCadastrar", cadastro.btnCadastrarOnClick);
+          },
+          carregaBanhoDia: function () {
+
+
+          },
+          btnCadastrarOnClick: function () {
+              if(y.byId("nomeCliente").value == "" ||y.byId("nomePet").value==""||y.byId("horarioData").value=="")
+              {
+                  y.byId("spMsg").innerHTML = "Preencha todos os campos."
+                  return;
+              }
+              var dados = {
+                  nomeCliente : y.byId("nomeCliente").value,
+                  nomePet : y.byId("nomePet").value,
+                  tamanhoPet : y.byId("tamanhoPet").value,
+                  tipoServico : y.byId("tipoServico").value,
+                  horarioData : y.byId("horarioData").value,
+                  horarioHora : y.byId("horarioHora").value
+              }
+                  y.ajax(dados, "/Banho/Cadastrar", "POST",
+                  function (retServ) {
+                      if(!retServ.operacao){
+                          y.byId("spMsg").innerHTML = retServ.msg;
+                      }
+                      else y.byId("spMsg").innerHTML = "Sucesso.";
+                  },
+                  function () {
+                     alert("Algo deu errado...");
+                  });
+          }
+      }
+        document.addEventListener("DOMContentLoaded", function () { cadastro.init(), cadastro.carregaBanhoDia();});
+    
+    </script>
+}
+@{ViewBag.Titulo = "Cadastro";
+    ViewBag.Msg = "Agendamento";
+}
+
+        <div class="container-fluid meio">                    
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                    <div class="col-md-12 col-md-offset-12" style="margin-top:3% !important">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Prime Petshop - Agendamento</h3>
+                            </div>
+                            <p>Informe seus dados:<br/>
+                               <span id="spMsg"></span></p>
+                            <div class="panel-body">
+                                <form accept-charset="UTF-8" role="form" method="post" action="">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <div class="col-md-6" style="float:left">Nome Cliente
+                                            <input class="form-control" placeholder="Ex: José Henrique Cardoso" id="nomeCliente" name="nomeCliente" type="text">
+                                            </div>
+                                            <div class="col-md-6" style="float:left" >Nome Pet
+                                            <input class="form-control" placeholder="Ex:Thor" id="nomePet" name="nomePet" type="text"/>
+                                            </div>
+                                        </div>                                           
+                                        <div class="form-group">
+                                                <label>Tamanho do pet:</label>
+                                                <select class="form-control" id="tamanhoPet">
+                                                    <option value="pequeno">Pequeno</option>
+                                                    <option value="medio">Médio</option>
+                                                    <option value="grande">Grande</option>
+                                                </select>
+                                            </div>
+                                        <div class="form-group">
+                                            <label>Serviços disponivel:</label>
+                                            <select class="form-control" id="tipoServico">
+                                                <option value="banho1">Banho simples</option>
+                                                <option value="banho2">Banho+Tosa Higiênica</option>
+                                                <option value="banho3">Banho+Tosa Completa</option>
+                                                <option value="tosa1">Tosa Higiênica</option>
+                                                <option value="tosa2">Tosa Completa</option>
+                                            </select>
+                                        </div>
+                                            <div class="form-group">
+                                                <label>Escolha o dia:</label>
+                                                <input type="date" id="horarioData" name="horario" min="2018-08-16" max="2019-04-20" required>
+                                                <span class="validity"></span>
+                                            </div>
+                                        <div class="form-group">
+                                            <label>Horário: </label>
+                                            <select class="form-control" id="horarioHora">
+                                                <option value="">09:00 hrs</option>
+                                                <option value="">10:00 hrs</option>
+                                                <option value="">11:00 hrs</option>
+                                                <option value="">13:00 hrs</option>
+                                                <option value="">14:00 hrs</option>
+                                                <option value="">15:00 hrs</option>
+                                                <option value="">16:00 hrs</option>
+                                                <option value="">17:00 hrs</option>
+                                            </select>
+                                        </div>
+                                        <input class="btn btn-lg btn-success btn-block" id="btnCadastrar" type="button" value="Cadastrar">
+                                    </fieldset>
+                                </form>
+                                <hr />
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>

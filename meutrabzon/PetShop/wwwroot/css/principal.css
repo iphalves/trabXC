@@ -1,0 +1,30 @@
+﻿/* https://coolors.co/ff1053-6c6ea0-b8b42d-f6f7eb-2d2a32 paleta */
+
+
+body {
+}
+.navbar {
+    background-color: #B8B42D !important;
+}
+
+.panel-body {
+    background-color: #fff !important;
+    padding: 50px;
+}
+
+.btn-custom {
+    background-color: #FF1053;
+    color: #fff;
+}
+
+.title-login{
+    font-size: 1.2em;
+    font-family: Arial;
+}
+.panel{
+    padding-top:50px;
+}
+
+.nav-link{
+    color: #fff !important;
+}
